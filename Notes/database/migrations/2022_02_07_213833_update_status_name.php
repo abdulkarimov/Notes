@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrioritiesTable extends Migration
+class UpdateStatusName extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,7 @@ class CreatePrioritiesTable extends Migration
      */
     public function up()
     {
-        Schema::table('notes', function (Blueprint $table) {
-            $table->renameColumn('priority', 'priority_id');
-        });
+        Schema::rename('status', 'statuses');
     }
 
     /**
@@ -25,8 +23,7 @@ class CreatePrioritiesTable extends Migration
      */
     public function down()
     {
-        Schema::table('notes', function (Blueprint $table) {
-            $table->renameColumn('priority_id', 'priority');
-        });
+        Schema::rename('statuses', 'status');
+
     }
 }
